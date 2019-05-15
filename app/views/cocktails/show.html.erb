@@ -1,13 +1,29 @@
-<h1>Cocktail - <%= @cocktail.name %></h1>
-<%= cl_image_tag @cocktail.photo, height: 300, width: 600, crop: :fill %>
-<br>
-<% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name %> - <%= dose.description %> <%= link_to 'Destroy', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-<%= render 'doses/new', cocktail: @cocktails, dose: @dose  %>
-
-<%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+<h1 class="text-center m-3">Cocktail - <%= @cocktail.name %></h1>
+<div class="container-show">
 
 
-<br>
-<%= link_to "Back to list", cocktails_path %>
+
+  <div class="recipe d-flex flex-column">
+    <div class="img">
+      <%= cl_image_tag @cocktail.photo, height: 260, width: 220 %>
+    </div>
+
+      <div class="content">
+      <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.ingredient.name %>: <%= dose.description %>
+            <%= link_to(dose_path(dose), method: :delete) do %>
+            <i class="fas fa-trash"></i>
+            <% end %>
+          </li>
+      <% end %>
+      </div>
+  </div>
+
+  <div class="dose-form">
+    <%= render 'doses/new', cocktail: @cocktails, dose: @dose  %>
+  </div>
+
+  <div class="back-btn">
+    <%= link_to "Back to list", cocktails_path %>
+  </div>
+</div>
