@@ -1,29 +1,24 @@
-<h1 class="text-center m-3">Cocktail - <%= @cocktail.name %></h1>
-<div class="container-show">
-
-
-
-  <div class="recipe d-flex flex-column">
-    <div class="img">
-      <%= cl_image_tag @cocktail.photo, height: 260, width: 220 %>
-    </div>
-
-      <div class="content">
-      <% @cocktail.doses.each do |dose| %>
-        <li><%= dose.ingredient.name %>: <%= dose.description %>
-            <%= link_to(dose_path(dose), method: :delete) do %>
-            <i class="fas fa-trash"></i>
-            <% end %>
-          </li>
-      <% end %>
-      </div>
-  </div>
-
-  <div class="dose-form">
-    <%= render 'doses/new', cocktail: @cocktails, dose: @dose  %>
-  </div>
-
-  <div class="back-btn">
-    <%= link_to "Back to list", cocktails_path %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path @cocktail.photo  %>);">
+  <div class="container">
+    <h1>Cocktail - <%= @cocktail.name %></h1>
   </div>
 </div>
+
+<div class="container-show">
+  <div class="recipe">
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %>: <%= dose.description %>
+        <%= link_to(dose_path(dose), method: :delete) do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+    <% end %>
+    <p><%= link_to "Back to list", cocktails_path, class: "btn btn-primary" %>
+    </p>
+  </div>
+
+  <div class="form">
+    <%= render 'doses/new', cocktail: @cocktails, dose: @dose  %>
+  </div>
+</div>
+
+

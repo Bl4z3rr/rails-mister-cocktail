@@ -2,39 +2,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .recipe {
-  background-size: cover;
-  background-position: center;
-  height: 700px;
-  width: 700px;
+  width: 500px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position: relative;
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
 }
 
-.img {
-  background-size: cover;
-  background-position: center;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4),rgba(0,0,0,0.4));
-  height: 260px;
-  width: 220px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+
+.form {
+  width: 500px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  width: 180px;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  padding: 10px;
-
+#new_dose {
+  margin-left: 0;
+  width: 400px;
 }
 
-// linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))
+.offset-sm-3 {
+    margin-left: 0;
+}
